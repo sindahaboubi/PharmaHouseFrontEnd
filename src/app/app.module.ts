@@ -18,6 +18,9 @@ import { ListeMedicamentsUserComponent } from './composants/gestionMedicaments/l
 import { CartComponent } from './composants/gestionMedicaments/cart/cart.component';
 import { MedicamentDetailComponent } from './composants/gestionMedicaments/medicament-detail/medicament-detail.component';
 import { ConfirmDialogComponent } from './composants/gestionMedicaments/confirm-dialog-component/confirm-dialog-component.component';
+import { AjouterOrdonnanceComponent } from './composants/gestionOrdonnances/ajouter-ordonnance/ajouter-ordonnance.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -34,8 +37,8 @@ import { ConfirmDialogComponent } from './composants/gestionMedicaments/confirm-
     ListeMedicamentsUserComponent,
     CartComponent,
     MedicamentDetailComponent,
-    ConfirmDialogComponent
-  
+    ConfirmDialogComponent,
+   AjouterOrdonnanceComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,6 +46,9 @@ import { ConfirmDialogComponent } from './composants/gestionMedicaments/confirm-
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

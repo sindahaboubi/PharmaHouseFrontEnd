@@ -1,1 +1,26 @@
-<p>liste-ordonnances works!</p>
+<div class="header-container">
+  <div class="header-content">
+    <h2 class="titre">
+      <i class="fa-solid fa-list"></i>
+      Liste des ordonnances</h2>
+      <button class="boutonAjouter" (click)="openDialog()">
+        <i class="fa-solid fa-square-plus boutonAjouter"></i>
+      </button>
+  </div>
+</div>
+<div class="card-container">
+  <div class="card" *ngFor="let ordonnance of listOrdonnances; let i = index" [ngClass]="{'first-in-row': i % 4 === 0}">
+    <div class="card-header" style="text-align:left; padding:15px">
+      <p style="display: flex; align-items: center; margin: 0;">
+        <i class="fa-solid fa-calendar-days" style="margin-right: 5px; color:rgb(0, 168, 0)"></i>
+        {{ ordonnance.dateCreation |date }}
+      </p>
+    </div>
+    <div class="card-body">
+      <img *ngIf="ordonnance.photo" [src]="'data:image/png;base64,' + ordonnance.photo" class="card-img-top" alt="Photo de l'ordonnance">
+    </div>
+    <div class="card-footer">
+      <button class="btn btn-primary">Détails</button>
+    </div>
+  </div>
+</div>

@@ -1,13 +1,14 @@
 .sidebar {
-  width: 17%;
+  width: 100%;
   height: 100%;
   background-color: #3b3b3b;
   color: #fff;
-  padding: 1.2%;
+  padding: 6.2%;
+  
   border-radius: 1em;
   position: relative;
   top: 1.2%;
-  left: 0.8%;
+  left: 2.8%;
   box-shadow: 0 0 20px rgb(34, 34, 34);
 }
 
@@ -44,22 +45,14 @@
   align-items: center;
 }
 
-.sidebar-link i {
-  margin-right: 10px;     /* Space between icon and text */
-}
-
-.sidebar-link:hover {
-  text-decoration: none;  /* No underline on hover */
-  color: #ccc;            /* Optional: Change color on hover */
-}
 @media (max-width: 768px) {
   .sidebar {
     width: 100%;
-    height: auto; 
-    padding: 10px; 
-    border-radius: 0; 
-    top: 0; 
-    left: 0; 
+    height: auto;
+    padding: 10px;
+    border-radius: 0;
+    top: 0;
+    left: 0;
   }
 
   .sidebar-header h2 {
@@ -67,7 +60,7 @@
   }
 
   .sidebar-menu li {
-    margin-left: 0; 
+    margin-left: 0;
   }
 }
 
