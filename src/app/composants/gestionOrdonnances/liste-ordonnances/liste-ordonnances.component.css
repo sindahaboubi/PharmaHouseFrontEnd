@@ -1,0 +1,80 @@
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  }
+
+  .card {
+  width: calc(25% - 20px);
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+
+  .card-header {
+  padding: 10px;
+  background-color: #f0f0f0;
+  text-align: center;
+  }
+
+  .card-body {
+  padding: 10px;
+  text-align: center;
+  }
+
+  .card-footer {
+  padding: 10px;
+  text-align: center;
+  background-color: #f0f0f0;
+  }
+
+  .card-img-top {
+  max-width: 100%;
+  max-height: 200px;
+  }
+
+  .card.first-in-row {
+  margin-left: 0;
+  }
+
+  .titre{
+  color:rgb(255, 255, 255);
+  margin-top: 8px;
+  }
+
+  .header-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  }
+
+  .header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(165, 182, 238, 0.801);
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  width: 100%;
+  max-width: calc(25% * 4 - 20px);
+  }
+
+  .boutonAjouter {
+    background-color: #4CAF50;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 3px;
+    transition: background-color 0.5s, transform 0.5s;
+  }
+
+  .boutonAjouter:hover {
+    background-color: rgb(0, 34, 146);
+    transform: scale(1.3);
+  }
+
+

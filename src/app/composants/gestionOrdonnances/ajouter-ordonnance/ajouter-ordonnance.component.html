@@ -1,0 +1,22 @@
+<form [formGroup]="ordonnanceForm" (ngSubmit)="submitForm()">
+  <div class="modal-body">
+    <h3 class="modal-title">Importer votre ordonnance</h3>
+    <div class="form-group">
+      <label for="ordonnanceImage" class="btn btn-outline-primary btn-block">
+        <input type="file" id="ordonnanceImage" class="d-none" accept="image/*" (change)="onFileSelected($event)" formControlName="photo" />
+        <i class="fa fa-upload"></i> Choisir une image
+      </label>
+      <div class="mt-3">
+        <img *ngIf="imagePreviewUrl" [src]="imagePreviewUrl" alt="Ordonnance" class="img-thumbnail" style="max-height: 200px;">
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer justify-content-center">
+    <button type="submit" class="btn btn-primary mx-2" [disabled]="ordonnanceForm.invalid">
+      <i class="fa fa-save"></i> Enregistrer
+    </button>
+    <button type="button" class="btn btn-warning mx-2" (click)="closeModal()">
+      <i class="fa fa-times"></i> Fermer
+    </button>
+  </div>
+</form>
