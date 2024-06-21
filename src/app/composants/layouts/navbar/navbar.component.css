@@ -14,3 +14,19 @@ img{
 .actions span {
   margin-left: 20px;
 }
+.badge {
+  padding: 0.2em 0.5em; /* Smaller padding */
+  border-radius: 50%;
+  background-color: red;
+  color: white;
+  font-size: 0.8em; /* Smaller font size */
+}
+
+.position-relative {
+  position: relative;
+}
+
+.badge-position {
+  top: -10px; /* Adjust position */
+  right: -15px; /* Adjust position */
+}

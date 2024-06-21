@@ -1,18 +1,28 @@
 <nav class="navbar">
-    <img class="image" src="assets/logo.png" alt="Logo">
+  <img class="image" src="assets/logo.png" alt="Logo">
   <div class="actions">
-    <span>
+    <span routerLink="/accueil">
       <i class="fa-solid fa-house"></i>
       Accueil
     </span>
-    <span>
+    <span routerLink="/propos">
       <i class="fa-regular fa-address-card"></i>
-      A propos</span>
+      A propos
+    </span>
     <span>
       <i class="fa-solid fa-pen"></i>
-      Mon profil</span>
+      Mon profil
+    </span>
+    <span routerLink="/cart" class="position-relative">
+      <i class="fa-solid fa-shopping-cart"></i>
+      Panier
+      <span *ngIf="cartCount > 0" class="badge badge-pill badge-danger position-absolute badge-position">
+        {{ cartCount }}
+      </span>
+    </span>
     <span>
       <i class="fa-solid fa-right-from-bracket"></i>
-      Déconnexion</span>
+      Déconnexion
+    </span>
   </div>
 </nav>

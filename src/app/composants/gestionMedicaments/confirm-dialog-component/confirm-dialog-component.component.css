@@ -1,0 +1,16 @@
+.dialog-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .button-container {
+    text-align: right;
+    margin-top: 10px;
+  }
+  
+  button {
+    margin-left: 10px;
+  }
+  

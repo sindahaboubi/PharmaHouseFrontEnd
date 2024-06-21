@@ -1,0 +1,25 @@
+<div class="container mt-5">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>Liste des Médicaments</h2>
+  </div>
+
+  <!-- Search input -->
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="Rechercher..." [(ngModel)]="searchText" (keyup)="filterMedicaments()">
+  </div>
+
+  <div class="row">
+    <div class="col-md-4 mb-4" *ngFor="let medicament of filteredMedicaments">
+      <div class="card card-hover" (click)="viewMedicament(medicament.id)">
+        <img *ngIf="medicament.photo" [src]="getMedicamentImageUrl(medicament)" class="card-img-top" alt="{{ medicament.titre }}">
+        <div class="card-body text-center">
+          <h5 class="card-title">{{ medicament.titre }}</h5>
+          <p class="card-text text-pink small"><strong>{{ medicament.prix }} DT</strong></p>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="filteredMedicaments.length === 0" class="col-12 text-center">
+      Aucun médicament trouvé.
+    </div>
+  </div>
+</div>

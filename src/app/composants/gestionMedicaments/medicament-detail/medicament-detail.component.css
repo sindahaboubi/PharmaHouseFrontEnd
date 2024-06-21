@@ -1,0 +1,34 @@
+.container {
+    max-width: 800px; /* Adjust as needed */
+    margin: auto;
+  }
+  
+  .img-fluid {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  
+  .input-group-prepend .btn,
+  .input-group-append .btn {
+    min-width: 40px;
+  }
+  
+  .input-group .form-control {
+    max-width: 60px; /* Adjust input field width */
+    text-align: center;
+  }
+  
+  .input-group-append .btn {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  
+  .input-group-prepend .btn {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  

@@ -1,0 +1,36 @@
+<div class="container mt-5">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>Liste des Médicaments</h2>
+    <button class="btn btn-primary btn-hover" (click)="navigateToNewMedicament()">Ajouter un Médicament</button>
+  </div>
+
+  <!-- Search input -->
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="Rechercher..." [(ngModel)]="searchText" (keyup)="filterMedicaments()">
+  </div>
+
+  <div class="row">
+    <div class="col-md-4 mb-4" *ngFor="let medicament of filteredMedicaments">
+      <div class="card card-hover text-center"> <!-- Added text-center class to center align content -->
+        <img *ngIf="medicament.photo" [src]="getMedicamentImageUrl(medicament)" class="card-img-top" alt="{{ medicament.titre }}">
+        <div class="card-body">
+          <h5 class="card-title text-primary">{{ medicament.titre }}</h5> <!-- Title in blue and centered -->
+          <p class="card-text text-center "><strong>Description: </strong>{{ medicament.description }}</p>
+          <p class="card-text text-center"><strong>Date d'Expiration: </strong>{{ medicament.dateExpiration | date }}</p>
+          <p class="card-text text-center"><strong>Prix: </strong>{{ medicament.prix }} DT</p> <!-- Added DT next to prix -->
+          <p class="card-text text-center"><strong>Quantité: </strong>{{ medicament.quantite }}</p>
+          <p class="card-text text-center"><strong>Fabricant: </strong>{{ medicament.fabricant }}</p>
+          <p class="card-text text-center"><strong>Dosage: </strong>{{ medicament.dosage }}</p>
+        </div>
+        <div class="card-footer d-flex justify-content-between">
+          <button class="btn btn-info btn-sm btn-hover" (click)="viewMedicament(medicament.id)">Voir</button>
+          <button class="btn btn-warning btn-sm btn-hover" (click)="editMedicament(medicament.id)">Modifier</button>
+          <button class="btn btn-danger btn-sm btn-hover" (click)="deleteMedicament(medicament.id)">Supprimer</button>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="filteredMedicaments.length === 0" class="col-12 text-center">
+      Aucun médicament trouvé.
+    </div>
+  </div>
+</div>

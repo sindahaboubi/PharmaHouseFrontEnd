@@ -1,0 +1,43 @@
+<div class="container">
+  <h2>Votre Panier</h2>
+  
+  <div *ngIf="cart.length === 0" class="alert alert-info">
+    Votre panier est vide.
+  </div>
+  
+  <div *ngIf="cart.length > 0">
+    <ul class="list-group mb-3">
+      <li class="list-group-item" *ngFor="let item of cart">
+        <div class="row align-items-center">
+          <div class="col-md-2">
+            <img [src]="getMedicamentImageUrl(item.medicament)" class="img-fluid rounded" alt="{{ item.medicament.titre }}">
+          </div>
+          
+          <div class="col-md-4">
+            <h5>{{ item.medicament.titre }}</h5>
+            <p><strong>Prix: </strong>{{ item.medicament.prix }} DT</p>
+          </div>
+          
+          <div class="col-md-3">
+            <p><strong>Quantité: </strong>{{ item.quantity }}</p>
+            <p><strong>Prix total: </strong>{{ item.quantity * item.medicament.prix }} DT</p>
+          </div>
+          
+          <div class="col-md-3 text-right">
+            <button class="btn btn-sm btn-danger" (click)="removeFromCart(item)">
+              <i class="fas fa-trash-alt"></i> Supprimer
+            </button>
+          </div>
+        </div>
+      </li>
+    </ul>
+    
+    <div class="text-right">
+      <p><strong>Prix total du panier: </strong>{{ calculateTotalCartPrice() }} DT</p>
+    </div>
+    
+    <div class="text-center">
+      <button class="btn btn-danger" (click)="clearCart()">Vider le panier</button>
+    </div>
+  </div>
+</div>
