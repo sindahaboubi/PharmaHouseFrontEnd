@@ -1,29 +1,68 @@
+/* Additional CSS enhancements */
+
+/* Ensure no overlapping elements */
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
 .container {
-    max-width: 600px; /* Center the form and set a max-width */
+  z-index: 1; /* Ensure the container is on top */
+  position: relative;
+  max-width: 600px; /* Center the form and set a max-width */
+  margin: auto; /* Center align horizontally */
 }
 
 textarea.form-control {
-    height: 100px; /* Set a specific height for the textarea */
+  height: 100px; /* Set a specific height for the textarea */
 }
 
-input.form-control, textarea.form-control {
-    /* Ensure form controls are properly styled */
-    width: 100%;
-    box-sizing: border-box;
+input.form-control,
+textarea.form-control {
+  /* Ensure form controls are properly styled */
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .row.mb-3 {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
-  /* Ensure no overlapping elements */
-  body, html {
-    height: 100%;
-    margin: 0;
-  }
-  
-  .container {
-    z-index: 1; /* Ensure the container is on top */
-    position: relative;
-  }
-  
+/* Icon in input group */
+.input-group-text {
+  background-color: #f8f9fa;
+  border-color: #ced4da;
+}
+
+.input-group-text i {
+  color: #6c757d;
+}
+
+/* Hover effect on form control */
+.form-control:hover {
+  border-color: #007bff;
+}
+
+.form-control:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}

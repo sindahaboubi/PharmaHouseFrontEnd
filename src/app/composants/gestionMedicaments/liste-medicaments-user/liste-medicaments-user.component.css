@@ -1,78 +1,49 @@
-.table-responsive {
-    margin-top: 20px;
-  }
-  
-  .btn {
-    margin-right: 5px;
-  }
-  
-  .btn:last-child {
-    margin-right: 0;
-  }
-  
-  /* Ensure no overlapping elements */
-  body, html {
-    height: 100%;
-    margin: 0;
-  }
-  
-  .container {
-    z-index: 1; /* Ensure the container is on top */
-    position: relative;
-  }
-  .text-pink {
-    color: rgb(13, 173, 194);
-  }
-  
-  .btn-add-cart {
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
-  
-  .btn-add-cart:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  }
-  .card {
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    transition: box-shadow 0.3s ease;
-    overflow: hidden; /* Ensure no overflow of child elements */
-  }
-  
-  .card-hover:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transform: translateY(-5px); /* Move card slightly up on hover */
-  }
-  
-  .card-img-top {
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-  }
-  
-  .card-body {
-    padding: 1.25rem;
-  }
-  
-  .card-title {
-    margin-bottom: 0.75rem; /* Space below title */
-  }
-  
-  .text-pink {
-    color: rgb(13, 173, 194); /* Pink text color */
-  }
-  
-  .btn-add-cart {
-    display: inline-block;
-    background-color: rgb(13, 173, 194); /* Pink background color */
-    color: #fff;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
-  
-  .btn-add-cart:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  }
-  
+/* cart.component.css */
+
+.card {
+  border: none; /* Remove default border */
+  border-radius: 12px; /* Rounded corners */
+  overflow: hidden; /* Ensure child elements don't overflow */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  transition: transform 0.3s, box-shadow 0.3s; /* Smooth animation */
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+  transform: translateY(-5px); /* Lift card slightly on hover */
+}
+
+.card-img-top {
+  border-radius: 12px 12px 0 0; /* Rounded top corners for image */
+  object-fit: cover; /* Ensure image covers the entire space */
+  height: 200px; /* Set a fixed height for consistency */
+  width: 100%; /* Ensure image covers the entire width */
+}
+
+.card-body {
+  padding: 1.5rem; /* Increased padding for better spacing */
+}
+
+.card-title {
+  font-size: 1.2rem; /* Larger font size for title */
+  margin-bottom: 0.5rem; /* Reduced margin below title */
+}
+
+.text-pink {
+  color: rgb(13, 173, 194); /* Pink text color */
+}
+
+.btn-add-cart {
+  display: inline-block;
+  background-color: rgb(13, 173, 194); /* Pink background color */
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.btn-add-cart:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}

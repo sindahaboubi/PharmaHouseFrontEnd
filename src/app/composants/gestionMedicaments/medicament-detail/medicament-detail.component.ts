@@ -52,17 +52,13 @@ export class MedicamentDetailComponent implements OnInit {
   addToCart(medicament: Medicament, quantity: number): void {
     if (quantity > 0) {
       // Ask for confirmation before proceeding
-      const confirmation = confirm(`Voulez-vous continuer vos achats ou aller au panier?`);
   
-      if (confirmation) {
-        // If user confirms, navigate to the 'medicamentsUser' route
-        this.router.navigate(['/medicamentsUser']);
-      } else {
+    
         // If user does not confirm, add to cart and navigate to 'cart' route
         this.cartService.addToCart(medicament, quantity);
         console.log(`${quantity} de ${medicament.titre} ajouté au panier.`);
-        this.router.navigate(['/cart']);
-      }
+        this.router.navigate(['/medicamentsUser']);
+      
   
     } else {
       // If quantity is not greater than zero, log an error
