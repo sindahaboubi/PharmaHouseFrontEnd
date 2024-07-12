@@ -21,6 +21,13 @@ import { ConfirmDialogComponent } from './composants/gestionMedicaments/confirm-
 import { AjouterOrdonnanceComponent } from './composants/gestionOrdonnances/ajouter-ordonnance/ajouter-ordonnance.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
+import { GestionutilisateursComponent } from './composants/gestionutilisateurs/gestionutilisateurs.component';
+import { ListeusersComponent } from './composants/gestionutilisateurs/listeusers/listeusers.component';
+import { AjoutuserComponent } from './composants/gestionutilisateurs/ajoutuser/ajoutuser.component';
+import { UpdateuserComponent } from './composants/gestionutilisateurs/updateuser/updateuser.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+
 
 @NgModule({
   declarations: [
@@ -39,6 +46,13 @@ import { MatDialogModule } from '@angular/material/dialog';
     MedicamentDetailComponent,
     ConfirmDialogComponent,
    AjouterOrdonnanceComponent,
+   GestionutilisateursComponent,
+   ListeusersComponent,
+   AjoutuserComponent,
+   UpdateuserComponent,
+   LoginComponent,
+   RegisterComponent,
+
   ],
   imports: [
     BrowserModule,

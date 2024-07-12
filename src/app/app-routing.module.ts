@@ -9,6 +9,12 @@ import { MedicamentListComponent } from './composants/gestionMedicaments/medicam
 import { ListeMedicamentsUserComponent } from './composants/gestionMedicaments/liste-medicaments-user/liste-medicaments-user.component';
 import { CartComponent } from './composants/gestionMedicaments/cart/cart.component';
 import { MedicamentDetailComponent } from './composants/gestionMedicaments/medicament-detail/medicament-detail.component';
+import { ListeusersComponent } from './composants/gestionutilisateurs/listeusers/listeusers.component';
+import { AjoutuserComponent } from './composants/gestionutilisateurs/ajoutuser/ajoutuser.component';
+import { UpdateuserComponent } from './composants/gestionutilisateurs/updateuser/updateuser.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+
 
 const routes: Routes = [
   { path: '', component: AccueilComponent }, // Default route
@@ -21,7 +27,14 @@ const routes: Routes = [
   { path: 'medicaments/edit/:id', component: MedicamentFormComponent }, // Route for editing existing medicament
   { path: 'medicaments/:id', component: MedicamentDetailComponent }, // Add this route
   { path: 'cart', component: CartComponent }, // Route for cart
-  { path: '**', component: ErreurComponent } // Wildcard route for unknown paths
+  //{ path: '**', component: ErreurComponent }, // Wildcard route for unknown paths
+  {path : 'utilisateurs/list' , component : ListeusersComponent},
+  {path : 'utilisateur/ajout', component : AjoutuserComponent},
+  {path : 'utilisateur/update', component : UpdateuserComponent},
+  {path : 'login', component : LoginComponent},
+  {path : 'register', component : RegisterComponent}
+ 
+
 ];
 
 @NgModule({
