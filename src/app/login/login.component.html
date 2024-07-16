@@ -13,29 +13,49 @@
                             <h4 class="text-dark-50 text-center pb-0 fw-bold">Sign In</h4>
                             <p class="text-muted mb-4">Enter your email address and password to access admin panel.</p>
                         </div>
-                        <div >
-                         
-                          
+                        <div *ngIf="isLoginFailed" class="alert alert-danger alert-dismissible fade show" role="alert">
+                            {{ errorMessage }}
+                            <button type="button" class="btn-close" aria-label="Close" (click)="isLoginFailed = false"></button>
                           </div>
-                        <form>
+                        <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
                             <div class="mb-3">
                                 <label for="username" class="form-label">Username</label>
                                 <input class="form-control" type="text" id="username" name="username"
-                                    required placeholder="Enter your username" >
+                                    [(ngModel)]="form.username" required placeholder="Enter your username" #username="ngModel">
                             </div>
 
                             <div class="mb-3">
                                 <label for="password" class="form-label">Password</label>
                                 <input type="password" id="password" name="password" class="form-control"
-                                   required placeholder="Enter your password">
+                                    [(ngModel)]="form.password" required placeholder="Enter your password">
                             </div>
 
                             <div class="mb-3 mb-0 text-center">
-                                <button type="submit" class="btn btn-primary" >Log In</button>
+                                <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Log In</button>
                             </div>
                         </form>
 
-          
+                        <!-- Error Modal -->
+                        <div class="modal fade" id="loginErrorModal" tabindex="-1" role="dialog" aria-labelledby="loginErrorModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="loginErrorModalLabel">Login Failed</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        {{ errorMessage }}
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!-- end card-body -->
+                </div> <!-- end card -->
 
                 <div class="row mt-3">
                     <div class="col-12 text-center">
@@ -46,4 +66,3 @@
         </div> <!-- end row -->
     </div> <!-- end container -->
 </div> <!-- end account-pages -->
-

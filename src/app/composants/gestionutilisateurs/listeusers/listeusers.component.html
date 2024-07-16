@@ -1,12 +1,13 @@
-<div class="header-container">
-    <div class="header-content">
-      <h2 class="titre">
-        <i class="fa-solid fa-list"></i>
-        Liste des ordonnances</h2>
-        <button class="btn btn-dark" routerLink="/composants/gestionutilisateurs/ajoutuser/ajoutuser">Ajout</button>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-6">
+      <h1>Liste des utilisateurs</h1>
+    </div>
+    <div class="col-lg-2 ms-auto mt-2">
+      <button class="btn btn-dark" routerLink="/utilisateur/ajout">Ajout</button>
     </div>
   </div>
- 
+
   <div class="row mt-4">
     <table class="table">
       <thead>
@@ -19,21 +20,21 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
+        <tr *ngFor="let user of users; let i = index">
+          <td>{{ user.id }}</td>
+          <td>{{ user.username }}</td>
+          <td>{{ user.email }}</td>
           <td>
             <ul>
-              <li></li>
+              <li *ngFor="let role of user.roles">{{ role.name }}</li>
             </ul>
           </td>
           <td>
-            <button class="btn btn-danger">Delete</button>
-            <button class="btn btn-info ms-2">Update</button>
+            <button (click)="onDelete(user.id)" class="btn btn-danger">Delete</button>
+            <button class="btn btn-info ms-2" (click)="GetUserToUpdate(user.id)">Update</button>
           </td>
         </tr>
       </tbody>
     </table>
   </div>
-  
+</div>

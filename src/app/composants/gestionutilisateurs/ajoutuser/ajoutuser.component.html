@@ -15,15 +15,15 @@
                         </div>
 
                         <!-- Form starts here -->
-                        <form >
+                        <form (ngSubmit)="onSubmit()" #userForm="ngForm">
                             <!-- Username -->
                             <div class="mb-3">
                                 <label for="username" class="form-label">Username</label>
                                 <input class="form-control" type="text" id="username" name="username"
-                                   required placeholder="Enter your username" >
-                                <div
+                                    [(ngModel)]="form.username" required placeholder="Enter your username" #username="ngModel">
+                                <div *ngIf="username.invalid && (username.dirty || username.touched)"
                                     class="text-danger">
-                                    <div >Username is required.</div>
+                                    <div *ngIf="username.errors && username.errors.hasOwnProperty('required')">Username is required.</div>
                                 </div>
                             </div>
 
@@ -31,10 +31,10 @@
                             <div class="mb-3">
                                 <label for="emailaddress" class="form-label">Email address</label>
                                 <input class="form-control" type="email" id="emailaddress" name="email"
-                                    required email placeholder="Enter your email"
-                                   >
-                                <div  class="text-danger">
-                                    <div >email is required and must be with @ and .!</div>
+                                    [(ngModel)]="form.email" required email placeholder="Enter your email"
+                                    #email="ngModel">
+                                <div *ngIf="email.invalid && (email.dirty || email.touched)" class="text-danger">
+                                    <div *ngIf="email.errors && email.errors.hasOwnProperty('required')">email is required and must be with @ and .!</div>
                                  
                                 </div>
                             </div>
@@ -43,13 +43,14 @@
                             <div class="mb-3">
                                 <label for="password" class="form-label">Password</label>
                                 <input type="password" id="password" name="password" class="form-control"
-     
+       [(ngModel)]="form.password" required minlength="6" #password="ngModel"
+       pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$"
        placeholder="Enter your password">
-                                <div
+                                <div *ngIf="password.invalid && (password.dirty || password.touched)"
                                     class="text-danger">
-                                    <div >Password is required.</div>
-                                    <div>Password must be at least 6 characters.</div>
-                                    <div>Password must contain at least one uppercase letter, one lowercase letter, and one number.</div>
+                                    <div *ngIf="password.errors && password.errors['required']">Password is required.</div>
+                                    <div *ngIf="password.errors && password.errors.hasOwnProperty('minlength')">Password must be at least 6 characters.</div>
+                                    <div *ngIf="password.errors && password.errors['pattern']">Password must contain at least one uppercase letter, one lowercase letter, and one number.</div>
                             
                                 </div>
                             </div>
@@ -58,14 +59,14 @@
                             <div class="mb-3">
                                 <label for="role" class="form-label">Role</label>
                                 <select class="form-control" id="role" name="role" required
-                                    >
+                                    [(ngModel)]="form.role[0]" #role="ngModel">
                                     <option value="Admin">Admin</option>
                                     <option value="Client">Client</option>
                                     <option value="Livreur">Livreur</option>
                                     <!-- Add more options as needed -->
                                 </select>
-                                <div  class="text-danger">
-                                    <div >Role is required.</div>
+                                <div *ngIf="role.errors && role.errors['required']" class="text-danger">
+                                    <div *ngIf="role.errors && role.errors['required']">Role is required.</div>
                              
                                    
                                 </div>
@@ -73,7 +74,7 @@
 
                             <!-- Submit Button -->
                             <div class="mb-3 mb-0 text-center">
-                                <button type="submit" class="btn btn-primary">Add
+                                <button type="submit" class="btn btn-primary" [disabled]="userForm.invalid">Add
                                     User</button>
                             </div>
                         </form>

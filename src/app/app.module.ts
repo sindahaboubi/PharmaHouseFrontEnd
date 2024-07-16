@@ -27,6 +27,7 @@ import { AjoutuserComponent } from './composants/gestionutilisateurs/ajoutuser/a
 import { UpdateuserComponent } from './composants/gestionutilisateurs/updateuser/updateuser.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { AuthApi } from './services/auth.api';
 
 
 @NgModule({
@@ -64,7 +65,7 @@ import { RegisterComponent } from './register/register.component';
     MatDialogModule,
     FormsModule
   ],
-  providers: [],
+  providers: [AuthApi],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

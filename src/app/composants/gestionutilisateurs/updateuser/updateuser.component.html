@@ -14,25 +14,25 @@
                             <p class="text-muted mb-4">Modifiez les informations de l'utilisateur ici !</p>
                         </div>
 
-                        <form >
+                        <form (ngSubmit)="onSubmit()">
                             <div class="mb-3">
                                 <label for="username" class="form-label">Username</label>
-                                <input class="form-control" type="text" id="username" name="username" required placeholder="Enter your username">
+                                <input class="form-control" type="text" id="username" name="username" [(ngModel)]="form.username" required placeholder="Enter your username">
                             </div>
 
                             <div class="mb-3">
                                 <label for="emailaddress" class="form-label">Email address</label>
-                                <input class="form-control" type="email" id="emailaddress" name="email"  required placeholder="Enter your email">
+                                <input class="form-control" type="email" id="emailaddress" name="email" [(ngModel)]="form.email" required placeholder="Enter your email">
                             </div>
 
                             <div class="mb-3">
                                 <label for="password" class="form-label">Password</label>
-                                <input type="password" id="password" name="password" class="form-control" placeholder="Enter new password">
+                                <input type="password" id="password" name="password" class="form-control" [(ngModel)]="form.password" placeholder="Enter new password">
                             </div>
 
                             <div class="mb-3">
                                 <label for="role" class="form-label">Role</label>
-                                <select class="form-control" id="role" name="role" required >
+                                <select class="form-control" id="role" name="role" required [(ngModel)]="form.role[0]">
                                     <option value="Admin">Admin</option>
                                     <option value="Client">Client</option>
                                     <option value="Livreur">Livreur</option>
@@ -40,7 +40,7 @@
                             </div>
 
                             <div class="mb-3 mb-0 text-center">
-                                <button type="submit" class="btn btn-primary" routerLink="/utilisateur/Update">Update User</button>
+                                <button type="submit" class="btn btn-primary">Update User</button>
                             </div>
                         </form>
                     </div> <!-- end card-body -->
