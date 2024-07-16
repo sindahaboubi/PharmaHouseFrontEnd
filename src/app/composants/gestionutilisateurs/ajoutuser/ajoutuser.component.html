@@ -1,0 +1,92 @@
+<div class="account-pages pt-2 pt-sm-5 pb-4 pb-sm-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xxl-4 col-lg-5">
+                <div class="card">
+                    <!-- Logo -->
+                    <div class="card-header pt-4 pb-4 text-center bg-primary">
+                        <!-- Your logo or header content here -->
+                    </div>
+
+                    <div class="card-body p-4">
+                        <div class="text-center w-75 m-auto">
+                            <h4 class="text-dark-50 text-center pb-0 fw-bold">Ajout Utilisateurs</h4>
+                            <p class="text-muted mb-4">Entrer les credentials ici ! </p>
+                        </div>
+
+                        <!-- Form starts here -->
+                        <form >
+                            <!-- Username -->
+                            <div class="mb-3">
+                                <label for="username" class="form-label">Username</label>
+                                <input class="form-control" type="text" id="username" name="username"
+                                   required placeholder="Enter your username" >
+                                <div
+                                    class="text-danger">
+                                    <div >Username is required.</div>
+                                </div>
+                            </div>
+
+                            <!-- Email -->
+                            <div class="mb-3">
+                                <label for="emailaddress" class="form-label">Email address</label>
+                                <input class="form-control" type="email" id="emailaddress" name="email"
+                                    required email placeholder="Enter your email"
+                                   >
+                                <div  class="text-danger">
+                                    <div >email is required and must be with @ and .!</div>
+                                 
+                                </div>
+                            </div>
+
+                            <!-- Password -->
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" id="password" name="password" class="form-control"
+     
+       placeholder="Enter your password">
+                                <div
+                                    class="text-danger">
+                                    <div >Password is required.</div>
+                                    <div>Password must be at least 6 characters.</div>
+                                    <div>Password must contain at least one uppercase letter, one lowercase letter, and one number.</div>
+                            
+                                </div>
+                            </div>
+
+                            <!-- Role -->
+                            <div class="mb-3">
+                                <label for="role" class="form-label">Role</label>
+                                <select class="form-control" id="role" name="role" required
+                                    >
+                                    <option value="Admin">Admin</option>
+                                    <option value="Client">Client</option>
+                                    <option value="Livreur">Livreur</option>
+                                    <!-- Add more options as needed -->
+                                </select>
+                                <div  class="text-danger">
+                                    <div >Role is required.</div>
+                             
+                                   
+                                </div>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <div class="mb-3 mb-0 text-center">
+                                <button type="submit" class="btn btn-primary">Add
+                                    User</button>
+                            </div>
+                        </form>
+                        <!-- Form ends here -->
+                    </div> <!-- end card-body -->
+                </div> <!-- end card -->
+
+                <div class="row mt-3">
+                    <div class="col-12 text-center">
+                        <!-- Additional content or links -->
+                    </div> <!-- end col -->
+                </div> <!-- end row -->
+            </div> <!-- end col -->
+        </div> <!-- end row -->
+    </div> <!-- end container -->
+</div> <!-- end account-pages -->
