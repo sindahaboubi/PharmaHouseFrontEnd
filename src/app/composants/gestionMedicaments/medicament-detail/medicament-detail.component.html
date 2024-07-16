@@ -1,26 +1,43 @@
 <div class="container mt-5">
-    <div *ngIf="medicament" class="text-center">
-      <img *ngIf="medicament.photo" [src]="getMedicamentImageUrl(medicament)" class="img-fluid mb-3" alt="{{ medicament.titre }}">
-      <h2>{{ medicament.titre }}</h2>
-      <p>{{ medicament.description }}</p>
-      <p><strong>Prix: </strong>{{ medicament.prix }} DT</p>
-  
-      <!-- Quantity and total price section -->
-      <div class="input-group mb-3 justify-content-center">
-        <div class="input-group-prepend">
-          <button class="btn btn-outline-secondary" (click)="decreaseQuantity()">-</button>
-        </div>
-        <input type="text" class="form-control text-center" style="max-width: 60px;" [(ngModel)]="quantity">
-        <div class="input-group-append">
-          <button class="btn btn-outline-secondary" (click)="increaseQuantity()">+</button>
-          <button class="btn btn-primary" (click)="addToCart(medicament, quantity)">
-            <i class="fa-solid fa-cart-plus"></i> Ajouter au panier
-          </button>
+  <div *ngIf="medicament" class="text-center">
+    <div class="card rounded">
+      <div class="card-body">
+        <div class="row align-items-center">
+          <!-- Medicament Image Column -->
+          <div class="col-md-4">
+            <img *ngIf="medicament.photo" [src]="getMedicamentImageUrl(medicament)" class="card-img-top" alt="{{ medicament.titre }}">
+          </div>
+          <!-- Medicament Details Column -->
+          <div class="col-md-8">
+            <div class="card-info">
+              <h2 class="medicament-title">{{ medicament.titre }}</h2>
+              <p class="medicament-price">{{ medicament.prix }} DT</p>
+              <p>{{ medicament.description }}</p>
+              <!-- Quantity and total price section -->
+              <div class="input-group mb-3 quantity-picker">
+                <div class="input-group-prepend">
+                  <button class="btn btn-outline-secondary" (click)="decreaseQuantity()">-</button>
+                </div>
+                <input type="text" class="form-control text-center" style="max-width: 60px;" [(ngModel)]="quantity">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" (click)="increaseQuantity()">+</button>
+                </div>
+              </div>
+              <!-- Add to Cart button -->
+              <button class="btn btn-primary btn-block mb-3 add-to-cart-button" (click)="addToCart(medicament, quantity)">
+                <i class="fa-solid fa-cart-plus"></i> Ajouter au panier
+              </button>
+              <!-- Total price section -->
+              <p class="total-price mb-0"><strong>Total Prix: </strong>{{ calculateTotalPrice() }} DT</p>
+            </div>
+          </div>
         </div>
       </div>
-  
-      <!-- Total price section -->
-      <p><strong>Total Prix: </strong>{{ calculateTotalPrice() }} DT</p>
+      <!-- Description Box -->
+      <div class="description-box">
+        <h3>Description</h3>
+        <p>{{ medicament.description }}</p>
+      </div>
     </div>
   </div>
-  
+</div>

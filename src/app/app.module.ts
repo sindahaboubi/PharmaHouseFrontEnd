@@ -21,6 +21,9 @@ import { ConfirmDialogComponent } from './composants/gestionMedicaments/confirm-
 import { AjouterOrdonnanceComponent } from './composants/gestionOrdonnances/ajouter-ordonnance/ajouter-ordonnance.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { DashboardMedicamentsComponent } from './composants/gestionMedicaments/dashboard-medicaments/dashboard-medicaments.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +42,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     MedicamentDetailComponent,
     ConfirmDialogComponent,
    AjouterOrdonnanceComponent,
+   DashboardMedicamentsComponent,
+   
   ],
   imports: [
     BrowserModule,
@@ -48,7 +53,11 @@ import { MatDialogModule } from '@angular/material/dialog';
     FormsModule,
     BrowserAnimationsModule,
     MatDialogModule,
-    FormsModule
+    FormsModule,
+    MatStepperModule,
+    ReactiveFormsModule,
+    MatSnackBarModule
+    // Add ReactiveFormsModule here if you're using reactive forms
   ],
   providers: [],
   bootstrap: [AppComponent]

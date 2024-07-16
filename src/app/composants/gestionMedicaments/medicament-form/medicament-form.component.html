@@ -1,85 +1,76 @@
 <div class="container mt-4">
   <div class="row mb-3">
     <div class="col text-center">
-      <h2>{{ isEditMode ? 'Consulter Medicament' : 'Ajouter Medicament' }}</h2>
+      <h2 class="form-title">{{ isEditMode ? 'Consulter Medicament' : 'Ajouter Medicament' }}</h2>
     </div>
+  </div>
+  <div *ngIf="successMessage" class="alert alert-success" role="alert">
+    {{ successMessage }}
+  </div>
+  <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+    {{ errorMessage }}
   </div>
   <form [formGroup]="medicamentForm" (ngSubmit)="onSubmit()">
     <div class="row mb-3">
-      <div class="col-md-6">
-        <label for="titre" class="form-label">Titre</label>
-        <div class="input-group">
-          <span class="input-group-text"><i class="fas fa-file-prescription"></i></span>
-          <input id="titre" formControlName="titre" type="text" class="form-control" placeholder="Titre du médicament">
-        </div>
-      </div>
-      <div class="col-md-6">
-        <label for="description" class="form-label">Description</label>
-        <textarea id="description" formControlName="description" class="form-control" rows="4" placeholder="Description du médicament"></textarea>
-      </div>
-    </div>
-    <div *ngIf="currentImage" class="row mb-3">
-      <div class="col-md-6">
-        <label class="form-label">Picture</label><br>
-        <img [src]="currentImage" alt="Medicament Picture" class="img-thumbnail" style="max-width: 300px; max-height: 300px;">
-      </div>
-    </div>
-    <div class="row mb-3">
-      <div class="col-md-4">
-        <label for="dateExpiration" class="form-label">Date Expiration</label>
-        <div class="input-group">
-          <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
-          <input id="dateExpiration" formControlName="dateExpiration" type="date" class="form-control">
-        </div>
-      </div>
-      <div class="col-md-4">
-        <label for="prix" class="form-label">Prix (DT)</label>
-        <div class="input-group">
-          <input id="prix" formControlName="prix" type="number" class="form-control" placeholder="Prix du médicament">
-          <span class="input-group-text">DT</span>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <label for="quantite" class="form-label">Quantité</label>
-        <div class="input-group">
-          <input id="quantite" formControlName="quantite" type="number" class="form-control" placeholder="Quantité en stock">
-          <span class="input-group-text">Unités</span>
-        </div>
-      </div>
-    </div>
-    <div class="row mb-3">
-      <div class="col-md-6">
-        <label for="fabricant" class="form-label">Fabricant</label>
-        <div class="input-group">
-          <span class="input-group-text"><i class="fas fa-industry"></i></span>
-          <input id="fabricant" formControlName="fabricant" type="text" class="form-control" placeholder="Fabricant du médicament">
-        </div>
-      </div>
-      <div class="col-md-6">
-        <label for="dosage" class="form-label">Dosage</label>
-        <div class="input-group">
-          <input id="dosage" formControlName="dosage" type="text" class="form-control" placeholder="Dosage du médicament">
-          <span class="input-group-text">mg/ml</span>
-        </div>
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="uniteId">Unité</label>
-      <select formControlName="uniteId" class="form-control">
-        <option *ngFor="let unite of unites" [value]="unite.id">{{ unite.libelle }}</option>
-      </select>
-    </div>
-    
-    <div class="row mb-3">
-      <div class="col-md-6">
+      <!-- Image Column -->
+      <div class="col-md-4 text-center">
         <label for="picture" class="form-label">Picture</label>
-        <input id="picture" type="file" (change)="onFileChange($event)" class="form-control">
+        <img *ngIf="currentImage" [src]="currentImage" alt="Medicament Picture" class="img-thumbnail mb-2">
+        <input id="picture" type="file" (change)="onFileChange($event)" class="form-control rounded-pill">
+      </div>
+      <!-- Form Fields Column -->
+      <div class="col-md-8">
+        <div class="row mb-3">
+          <div class="col-md-12">
+            <label for="titre" class="form-label">Titre</label>
+            <input id="titre" formControlName="titre" type="text" class="form-control rounded-pill" placeholder="Titre du médicament">
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-12">
+            <label for="description" class="form-label">Description</label>
+            <textarea id="description" formControlName="description" class="form-control" rows="4" placeholder="Description du médicament"></textarea>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="dateExpiration" class="form-label">Date Expiration</label>
+            <input id="dateExpiration" formControlName="dateExpiration" type="date" class="form-control rounded-pill">
+          </div>
+          <div class="col-md-6">
+            <label for="prix" class="form-label">Prix (DT)</label>
+            <input id="prix" formControlName="prix" type="number" class="form-control rounded-pill" placeholder="Prix du médicament">
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="quantite" class="form-label">Quantité</label>
+            <input id="quantite" formControlName="quantite" type="number" class="form-control rounded-pill" placeholder="Quantité en stock">
+          </div>
+          <div class="col-md-6">
+            <label for="fabricant" class="form-label">Fabricant</label>
+            <input id="fabricant" formControlName="fabricant" type="text" class="form-control rounded-pill" placeholder="Fabricant du médicament">
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="dosage" class="form-label">Dosage</label>
+            <input id="dosage" formControlName="dosage" type="text" class="form-control rounded-pill" placeholder="Dosage du médicament">
+          </div>
+          <div class="col-md-6">
+            <label for="uniteId" class="form-label">Unité</label>
+            <select id="uniteId" formControlName="uniteId" class="form-control rounded-pill">
+              <option *ngFor="let unite of unites" [value]="unite.id">{{ unite.libelle }}</option>
+            </select>
+          </div>
+        </div>
       </div>
     </div>
-    
     <div class="row">
       <div class="col text-center">
-        <button type="submit" class="btn btn-primary">{{ isEditMode ? 'Enregistrer' : 'Ajouter' }}</button>
+        <button type="submit" class="btn btn-primary rounded-pill">
+          <i class="fas fa-save"></i> {{ isEditMode ? 'Enregistrer' : 'Ajouter' }}
+        </button>
       </div>
     </div>
   </form>

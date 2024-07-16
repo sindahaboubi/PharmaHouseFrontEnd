@@ -1,0 +1,55 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex; /* Use flexbox to arrange items in a row */
+    flex-wrap: wrap; /* Wrap items onto multiple lines if needed */
+    justify-content: space-between; /* Distribute items evenly along the main axis */
+    align-items: flex-start; /* Align items at the start of the cross axis */
+  }
+  
+  h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #36C2CE;
+  }
+  
+  .commandes-counter {
+    background-color: #36C2CE;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    text-align: center;
+    width: 100%;
+  }
+  
+  .commandes-counter p {
+    font-size: 1.5em;
+    color: white;
+    margin: 0;
+  }
+  
+  .commandes-counter span {
+    font-weight: bold;
+    font-size: 1.2em;
+  }
+  
+  .chart-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 48%; /* Adjust width to fit two items in a row */
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  canvas {
+    width: 100%;
+    height: auto; /* Let Chart.js determine height based on aspect ratio */
+    max-height: 300px; /* Limit max height to prevent oversized charts */
+    border-radius: 10px;
+  }
+  
