@@ -1,34 +1,82 @@
-.container {
-    max-width: 800px; /* Adjust as needed */
-    margin: auto;
-  }
-  
-  .img-fluid {
-    max-width: 100%;
-    height: auto;
-  }
-  
-  .text-center {
-    text-align: center;
-  }
-  
-  .input-group-prepend .btn,
-  .input-group-append .btn {
-    min-width: 40px;
-  }
-  
-  .input-group .form-control {
-    max-width: 60px; /* Adjust input field width */
-    text-align: center;
-  }
-  
-  .input-group-append .btn {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-  }
-  
-  .input-group-prepend .btn {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-  }
-  
+/* Custom styles for the medication card */
+.card {
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 30px;
+  background-color: white;
+}
+
+.card-body {
+  padding: 0;
+}
+
+.card-img-top {
+  width: 100%;
+  border-radius: 15px 0 0 15px;
+  transition: transform 0.3s ease;
+}
+
+.card-img-top:hover {
+  transform: scale(1.05);
+}
+
+.card-info {
+  padding: 20px;
+}
+
+.medicament-title {
+  color: #278c96;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.medicament-price {
+  color: #278c96;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.btn-primary {
+  background-color: #36C2CE;
+  border-color: #36C2CE;
+  width: 100%;
+}
+
+.btn-primary:hover {
+  background-color: #478CCF;
+  border-color: #478CCF;
+}
+
+.btn-outline-secondary {
+  color: #6c757d;
+}
+
+.btn-outline-secondary:hover {
+  color: #495057;
+}
+
+.quantity-picker {
+  max-width: 100px;
+  margin: 0 auto;
+}
+
+.total-price {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #36C2CE;
+}
+
+.description-box {
+  background-color: #E0F7FA;
+  padding: 15px;
+  border-radius: 0 0 15px 15px;
+  margin-top: 20px;
+}
+
+.description-box h3 {
+  color: #4535C1;
+  margin-bottom: 10px;
+}

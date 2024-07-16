@@ -1,13 +1,18 @@
 <div class="container mt-5">
-  <div class="d-flex justify-content-between align-items-center mb-3">
-    <h2>Liste des Médicaments</h2>
+  <div class="header-container">
+    <div class="header-content">
+      <h2 class="titre">
+        <i class="fa-solid fa-list"></i>
+        Liste des Médicaments</h2>
+       
+    </div>
   </div>
 
   <!-- Search input -->
   <div class="form-group">
     <input type="text" class="form-control" placeholder="Rechercher..." [(ngModel)]="searchText" (keyup)="filterMedicaments()">
   </div>
-
+  <div><br></div>
   <div class="row">
     <div class="col-md-4 mb-4" *ngFor="let medicament of filteredMedicaments">
       <div class="card card-hover" (click)="viewMedicament(medicament.id)">

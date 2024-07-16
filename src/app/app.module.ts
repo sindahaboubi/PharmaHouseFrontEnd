@@ -29,6 +29,9 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthApi } from './services/auth.api';
 
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { DashboardMedicamentsComponent } from './composants/gestionMedicaments/dashboard-medicaments/dashboard-medicaments.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +57,8 @@ import { AuthApi } from './services/auth.api';
    LoginComponent,
    RegisterComponent,
 
+   DashboardMedicamentsComponent,
+   
   ],
   imports: [
     BrowserModule,
@@ -63,7 +68,11 @@ import { AuthApi } from './services/auth.api';
     FormsModule,
     BrowserAnimationsModule,
     MatDialogModule,
-    FormsModule
+    FormsModule,
+    MatStepperModule,
+    ReactiveFormsModule,
+    MatSnackBarModule
+    // Add ReactiveFormsModule here if you're using reactive forms
   ],
   providers: [AuthApi],
   bootstrap: [AppComponent]

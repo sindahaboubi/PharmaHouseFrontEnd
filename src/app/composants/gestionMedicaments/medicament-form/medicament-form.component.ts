@@ -16,8 +16,10 @@ export class MedicamentFormComponent implements OnInit {
   medicamentForm: FormGroup;
   selectedFile: File | null = null;
   unites: Unite[] = [];
-  currentImage: string | ArrayBuffer | null = null; // Variable to hold Base64 image data
+  currentImage: string | ArrayBuffer | null = null;
 
+  successMessage: string | null = null;
+  errorMessage: string | null = null;
 
   constructor(
     private medicamentService: MedicamentService,
@@ -33,10 +35,11 @@ export class MedicamentFormComponent implements OnInit {
       quantite: [0, [Validators.required, Validators.min(0)]],
       fabricant: ['', Validators.required],
       dosage: ['', Validators.required],
-      uniteId: ['', Validators.required], // Ensure this matches your HTML form field name
+      uniteId: ['', Validators.required],
       file: [null]
     });
   }
+
   ngOnInit(): void {
     this.fetchUnites();
     const id = this.route.snapshot.params['id'];
@@ -45,34 +48,32 @@ export class MedicamentFormComponent implements OnInit {
       this.medicamentService.getById(id).subscribe(
         (medicament: Medicament) => {
           this.medicament = medicament;
-          
-          // Format the date to YYYY-MM-DD
+
           const formattedDate = this.formatDate(medicament.dateExpiration);
-          
+
           this.medicamentForm.patchValue({
             titre: medicament.titre,
             description: medicament.description,
-            dateExpiration: formattedDate, // Use the formatted date here
+            dateExpiration: formattedDate,
             prix: medicament.prix,
             quantite: medicament.quantite,
             fabricant: medicament.fabricant,
             dosage: medicament.dosage,
-            uniteId: medicament.unite.id  // Ensure this matches the structure of your data
+            uniteId: medicament.unite.id
           });
-  
-          // If you're storing picture as a base64 string
+
           if (medicament.photo) {
             this.currentImage = `data:image/jpeg;base64,${medicament.photo}`;
           }
         },
         (error) => {
           console.error('Error fetching medicament:', error);
+          this.errorMessage = "Erreur lors de la récupération du médicament.";
         }
       );
     }
   }
-  
-  // Utility function to format the date to YYYY-MM-DD
+
   private formatDate(date: Date): string {
     const d = new Date(date);
     const month = ('0' + (d.getMonth() + 1)).slice(-2);
@@ -80,6 +81,7 @@ export class MedicamentFormComponent implements OnInit {
     const year = d.getFullYear();
     return `${year}-${month}-${day}`;
   }
+
   convertBlobToBase64(blob: Blob): void {
     const reader = new FileReader();
     reader.readAsDataURL(blob);
@@ -88,7 +90,6 @@ export class MedicamentFormComponent implements OnInit {
     };
   }
 
-
   fetchUnites(): void {
     this.medicamentService.getUnites().subscribe(
       (unites: Unite[]) => {
@@ -96,6 +97,7 @@ export class MedicamentFormComponent implements OnInit {
       },
       (error) => {
         console.error('Error fetching unites:', error);
+        this.errorMessage = "Erreur lors de la récupération des unités.";
       }
     );
   }
@@ -114,7 +116,7 @@ export class MedicamentFormComponent implements OnInit {
         this.createMedicament();
       }
     } else {
-      // Form is invalid, handle validation errors or feedback to user
+      this.errorMessage = "Veuillez remplir tous les champs obligatoires.";
     }
   }
 
@@ -122,11 +124,16 @@ export class MedicamentFormComponent implements OnInit {
     const formData = this.prepareFormData();
     this.medicamentService.create(formData).subscribe(
       () => {
-        this.router.navigate(['/medicaments']);
+        this.successMessage = "Le médicament a été ajouté avec succès.";
+        this.errorMessage = null;
+        setTimeout(() => {
+          this.router.navigate(['/medicaments']);
+        }, 3000); // Navigate after 3 seconds
       },
       (error) => {
         console.error('Error creating medicament:', error);
-        // Handle error, show user appropriate message
+        this.successMessage = null;
+        this.errorMessage = "Erreur lors de la création du médicament.";
       }
     );
   }
@@ -135,14 +142,20 @@ export class MedicamentFormComponent implements OnInit {
     const formData = this.prepareFormData(true);
     this.medicamentService.update(this.medicament.id, formData).subscribe(
       () => {
-        this.router.navigate(['/medicaments']);
+        this.successMessage = "Le médicament a été mis à jour avec succès.";
+        this.errorMessage = null;
+        setTimeout(() => {
+          this.router.navigate(['/medicaments']);
+        }, 3000); // Navigate after 3 seconds
       },
       (error) => {
         console.error('Error updating medicament:', error);
-        // Handle error, show user appropriate message
+        this.successMessage = null;
+        this.errorMessage = "Erreur lors de la mise à jour du médicament.";
       }
     );
   }
+
   private prepareFormData(includeFile: boolean = true): FormData {
     const formData = new FormData();
     formData.append('titre', this.medicamentForm.get('titre')?.value);
@@ -153,7 +166,7 @@ export class MedicamentFormComponent implements OnInit {
     formData.append('fabricant', this.medicamentForm.get('fabricant')?.value);
     formData.append('dosage', this.medicamentForm.get('dosage')?.value);
     formData.append('uniteId', this.medicamentForm.get('uniteId')?.value);
-  
+
     if (includeFile && this.selectedFile) {
       formData.append('file', this.selectedFile, this.selectedFile.name);
     }

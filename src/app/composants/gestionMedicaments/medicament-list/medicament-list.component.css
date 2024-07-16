@@ -132,3 +132,36 @@ body, html {
 .form-group {
   margin-bottom: 1rem;
 }
+
+.header-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  }
+
+  .header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(165, 182, 238, 0.801);
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  width: 100%;
+  max-width: calc(25% * 4 - 20px);
+  }
+
+  .boutonAjouter {
+    background-color: #4CAF50;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 3px;
+    transition: background-color 0.5s, transform 0.5s;
+  }
+
+  .boutonAjouter:hover {
+    background-color: rgb(0, 34, 146);
+    transform: scale(1.3);
+  }

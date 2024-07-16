@@ -9,6 +9,7 @@ import { MedicamentListComponent } from './composants/gestionMedicaments/medicam
 import { ListeMedicamentsUserComponent } from './composants/gestionMedicaments/liste-medicaments-user/liste-medicaments-user.component';
 import { CartComponent } from './composants/gestionMedicaments/cart/cart.component';
 import { MedicamentDetailComponent } from './composants/gestionMedicaments/medicament-detail/medicament-detail.component';
+import { DashboardMedicamentsComponent } from './composants/gestionMedicaments/dashboard-medicaments/dashboard-medicaments.component';
 import { ListeusersComponent } from './composants/gestionutilisateurs/listeusers/listeusers.component';
 import { AjoutuserComponent } from './composants/gestionutilisateurs/ajoutuser/ajoutuser.component';
 import { UpdateuserComponent } from './composants/gestionutilisateurs/updateuser/updateuser.component';
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'medicaments/new', component: MedicamentFormComponent }, // Route for adding new medicament
   { path: 'medicaments/edit/:id', component: MedicamentFormComponent }, // Route for editing existing medicament
   { path: 'medicaments/:id', component: MedicamentDetailComponent }, // Add this route
+  { path: 'dashboard', component: DashboardMedicamentsComponent },
   { path: 'cart', component: CartComponent }, // Route for cart
   //{ path: '**', component: ErreurComponent }, // Wildcard route for unknown paths
   {path : 'utilisateurs/list' , component : ListeusersComponent},

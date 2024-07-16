@@ -1,62 +1,61 @@
-/* Additional CSS enhancements */
-
-/* Ensure no overlapping elements */
+/* Custom styles for the medication form */
 body, html {
   height: 100%;
   margin: 0;
 }
 
 .container {
-  z-index: 1; /* Ensure the container is on top */
+  z-index: 1;
   position: relative;
-  max-width: 600px; /* Center the form and set a max-width */
-  margin: auto; /* Center align horizontally */
+  max-width: 800px;
+  margin: auto;
 }
 
-textarea.form-control {
-  height: 100px; /* Set a specific height for the textarea */
-}
-
+textarea.form-control,
 input.form-control,
-textarea.form-control {
-  /* Ensure form controls are properly styled */
+select.form-control {
+  border-radius: 50px; /* Rounded inputs */
   width: 100%;
   box-sizing: border-box;
 }
 
-.row.mb-3 {
-  margin-bottom: 1rem;
+textarea.form-control {
+  border-radius: 0; /* Description input not rounded */
 }
 
-/* Icon in input group */
+.row.mb-3 {
+  margin-bottom: 0.75rem; /* Compact inputs */
+}
+
 .input-group-text {
   background-color: #f8f9fa;
   border-color: #ced4da;
+  border-radius: 50px; /* Rounded input group text */
 }
 
 .input-group-text i {
   color: #6c757d;
 }
 
-/* Hover effect on form control */
 .form-control:hover {
-  border-color: #007bff;
+  border-color: #278c96;
 }
 
 .form-control:focus {
-  border-color: #007bff;
-  box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
+  border-color: #278c96;
+  box-shadow: 0 0 0 0.25rem rgba(39, 140, 150, 0.25);
 }
 
 .btn-primary {
-  background-color: #007bff;
-  border-color: #007bff;
+  background-color: #278c96;
+  border-color: #278c96;
   color: #fff;
+  width: 100%;
 }
 
 .btn-primary:hover {
-  background-color: #0056b3;
-  border-color: #0056b3;
+  background-color: #206f75;
+  border-color: #206f75;
 }
 
 .text-center {
@@ -64,5 +63,38 @@ textarea.form-control {
 }
 
 .form-group {
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem; /* Compact inputs */
+}
+
+.img-thumbnail {
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  transition: transform 0.3s ease;
+}
+
+.img-thumbnail:hover {
+  transform: scale(1.05);
+}
+
+.input-group {
+  margin-bottom: 0.75rem; /* Compact inputs */
+}
+
+.row .col-md-6 {
+  margin-bottom: 0.75rem; /* Compact inputs */
+}
+
+.row .col-md-12 {
+  margin-bottom: 0.75rem; /* Compact inputs */
+}
+
+textarea.form-control {
+  resize: none;
+}
+
+.form-title {
+  font-size: 1.75rem;
+  font-weight: bold;
+  color: #278c96;
 }
