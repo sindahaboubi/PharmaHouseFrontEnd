@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { AuthApi } from '../../../services/auth.api';
 
 @Component({
   selector: 'app-sidebar',
