@@ -13,7 +13,7 @@ export class AjoutuserComponent implements OnInit {
     username: null,
     email: null,
     password: null,
-    role: ['Client']
+    role: ['']
   };
 
   isSuccessful = false;

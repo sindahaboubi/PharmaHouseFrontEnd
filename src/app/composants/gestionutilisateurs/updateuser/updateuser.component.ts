@@ -13,7 +13,7 @@ export class UpdateuserComponent implements OnInit {
     username: null,
     email: null,
     password: null,
-    role: ['Livreur'],
+    role: [''],
   };
   userId!: any;
 

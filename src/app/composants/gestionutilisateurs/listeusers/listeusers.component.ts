@@ -42,6 +42,6 @@ export class ListeusersComponent implements OnInit {
   }
   
   GetUserToUpdate(id: any) {
-    this.router.navigate(['/dashboard/gestionutilisateurs/update'], { queryParams: { UserID: id } });
+    this.router.navigate(['/utilisateur/update'], { queryParams: { UserID: id } });
   }
 }

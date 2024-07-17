@@ -16,9 +16,22 @@ const httpOptions = {
 })
 export class AuthApi {
   AUTH_API: any;
-
+  private currentUser: any;
   constructor(private http: HttpClient, private router: Router) {}
+  isAdmin(): boolean {
+    // Implement role check logic
+    return this.currentUser.role === 'Admin';
+  }
 
+  isClient(): boolean {
+    // Implement role check logic
+    return this.currentUser.role === 'Client';
+  }
+
+  isLivreur(): boolean {
+    // Implement role check logic
+    return this.currentUser.role === 'Livreur';
+  }
 
   register(data: any): Observable<any> {
     return this.http.post<any>(`${AUTH_API}signup`, data, httpOptions);
@@ -31,25 +44,23 @@ export class AuthApi {
   // connexion d'un utilisateur
   login(credentials: any): Observable<any> {
     return this.http
-      .post(
-        AUTH_API + 'signin',
-        {
-          username: credentials.username,
-          password: credentials.password,
-        },
-        httpOptions
-      )
-      .pipe(
-        map((response: any) => {
-          localStorage.setItem('token', response.accessToken);
-          localStorage.setItem('userid', response.id);
-          localStorage.setItem('ROLE_KEY', response.roles[0]);
-          if (response.roles.includes('Livreur')) {
-            this.router.navigate(['/dashboard']);
-          }
-          return response;
-        })
-      );
+    .post(
+      AUTH_API + 'signin',
+      {
+        username: credentials.username,
+        password: credentials.password,
+      },
+      httpOptions
+    )
+    .pipe(
+      map((response: any) => {
+        localStorage.setItem('token', response.accessToken);
+        localStorage.setItem('userid', response.id);
+        localStorage.setItem('ROLE_KEY', response.roles[0]); // Assuming roles are returned as an array
+        this.currentUser = response; // Update currentUser with response data
+        return response;
+      })
+    );
   }
   //verifier s'il existe un token dans le localStorage pour maintenir la connexion du l'utilisateur
   isLoggedIn(): boolean {

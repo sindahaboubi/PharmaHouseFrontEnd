@@ -18,6 +18,7 @@ import { RegisterComponent } from './register/register.component';
 
 
 const routes: Routes = [
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: '', component: AccueilComponent }, // Default route
   { path: 'erreur', component: ErreurComponent },
   { path: 'propos', component: ProposComponent },
@@ -35,6 +36,7 @@ const routes: Routes = [
   {path : 'utilisateur/update', component : UpdateuserComponent},
   {path : 'login', component : LoginComponent},
   {path : 'register', component : RegisterComponent}
+
  
 
 ];
